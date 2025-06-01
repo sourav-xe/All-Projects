@@ -1,0 +1,509 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.navbar{
+    background-color: rgb(226, 64, 5);
+}
+.nav-item{
+    gap: 50px; 
+    list-style-type: none;
+}
+.logo{
+    margin-left: 30px;
+}
+.tog{
+    color: rgb(0, 0, 0);
+    margin-right: 20px;
+    margin-top: 10px;
+}
+.tog a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: large;
+    font-weight: 500;
+    animation: chag 5s  infinite;
+}
+@keyframes chag{
+    0%{
+        color: black;
+    }
+    50%{
+        color: rgb(52, 231, 70);
+    }
+    100%{
+        color: rgb(255, 255, 255);
+    }
+}
+
+.tog a:hover{
+    font-weight: 700;
+    transition: all 0.3s;
+    text-decoration: underline;
+    color: rgb(255, 255, 255);
+}
+.itm{
+    margin-left: 10px;
+   
+    list-style: none;
+}
+.search{
+    border-radius: 10px;
+
+} 
+/* --------------------main------------------ */
+.main{
+    background-color: slategray;
+    height: 640px;
+    display: flex;
+    flex-direction: column;
+    background: url(imgs.jpg);
+    object-fit: cover;
+    z-index: 1;
+    
+}
+.main-text{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    margin-top: 200px;
+    margin-left: 100px;
+    gap: 20px;
+    animation: change 4s  infinite;
+}
+@keyframes change{
+    0%{
+        color: black;
+    }
+    50%{
+        color: rgb(52, 61, 231);
+    }
+    100%{
+        color: rgb(255, 255, 255);
+    }
+}
+
+.explore{
+    width: 120px;
+    height: 35px;
+    text-align: center;
+    font-weight: 500;
+    background-color: rgb(54, 26, 197);
+    border-radius: 5px;
+    box-shadow: 2px 2px 15px rgb(0, 0, 0);
+    color: white;
+    margin-left: 270px;
+    animation: bg 2s infinite;
+}
+@keyframes bg{
+    0%{
+        background-color: blue;
+    }
+    100%{
+        background-color: rgb(9, 9, 9);
+    }
+}
+.explore:hover{
+    width: 126px;
+    height: 33px;
+    color: rgb(255, 253, 253);
+    text-decoration: underline;
+}
+.headline{
+    font-size: 4rem;
+    font-style:italic;
+    animation: typing 2s;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.1em solid red;
+
+}
+@keyframes typing{
+    from{
+        height: 0;
+    }
+    to{
+        height: 100%;
+    }
+}
+ .main p{
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin-left: 120px;
+    color: rgb(36, 36, 194);
+    animation: change1 4s  infinite;
+  
+}
+@keyframes change1{
+    0%{
+        color: black;
+    }
+    50%{
+        color: rgb(52, 61, 231);
+    }
+    100%{
+        color: rgb(255, 255, 255);
+    }
+}
+
+
+
+
+/* dicccccccccc pageeeeeeeeeeeeeee */
+.line1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: black;
+    background-color:rgb(0, 0, 0);
+    height: 2px;
+    box-shadow: 2px 2px 30px rgb(0, 0, 0);
+}
+.line2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: rgb(15, 15, 15);
+    background-color:rgb(255, 255, 255);
+    height: 2px;
+    box-shadow: 2px 2px 30px rgb(0, 0, 0);
+}
+.disc{
+    height: 500px;
+    width: 100%;
+    background-color: rgb(235, 66, 15);
+}
+.wrap{
+    display: flex;
+    margin-top: 40px;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.disc-head{
+    text-align: center;
+    margin-top: 10px;
+    color: rgb(0, 13, 255);
+    font-style: italic;
+    animation: chg 1s infinite;
+}
+@keyframes chg{
+    0%{
+        color: red;
+    }
+    100%{
+        color: rgb(0, 13, 255);
+    }
+}
+.disc-img{
+    border-radius: 30px;
+    margin-left: 50px;
+}
+.disc-header{
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+.disc-abt{
+    color: rgb(244, 228, 228);
+    font-style: italic;
+}
+
+.exp{
+    width: 130px;
+    height: 35px;
+    color: white;
+    background-color: rgb(38, 196, 72);
+    font-size: large; 
+    border-radius: 5px; 
+}
+.exp:hover{
+    color: rgb(50, 50, 197);
+    background-color : rgb(228, 240, 8);
+    width: 135px;
+    height: 39px;
+}
+/* -------------------------------Nike Collabs---------------------------------- */
+.collab{
+    width: 100%;
+    background-color: black;
+    color: white;
+}
+.Mens-tag{
+    text-align: center;
+    margin-top: 40px;
+    font-weight: 700;
+    font-style: italic;
+    color: rgb(244, 12, 12);
+}
+.nike-head{
+    text-align: center;
+}
+.cpk{
+    height: 650px;
+    width: 400px;
+}
+.crousel-wrap{
+    display: flex;
+    gap: 70px;
+    margin-top: 60px;
+    margin-left: 40px;
+}
+.caro-head{
+
+    text-align: center;
+}
+.womens-tag{
+    text-align: center;
+    font-weight: 700;
+    font-style: italic;
+    color: rgb(244, 12, 12);
+}
+
+/* ----------------------ACCORDIAN AND FAQ--------------------- */
+.forth-page{
+    height: 600px;
+    width: 100%;
+    background: url(fwJJS77.jpg);
+    object-fit: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.faq-header{
+    text-align: center;
+    margin-top: 30px;
+    color: white;
+    font-weight: bolder;
+    font-size: 2rem;
+    animation: big 3s linear infinite;
+    text-decoration: underline;
+}
+@keyframes big{
+    0%{
+        font-size: 2rem;
+    }
+    50%{
+        font-size: 2.25rem;
+    }
+    100%{
+        font-size: 2.5rem;
+    }
+    
+}
+.faq-wrap{
+    height: 400px;
+    width: 70%;
+    margin-top: 50px;
+}
+.accordion-button{
+    background-color: white;
+}
+.accordion-body{
+    background-color: black;
+    color: white;
+    
+}
+span{
+    color: black;
+    font-weight: 500;
+}
+.sup{
+    height: 30px;
+    width: 40px;
+}
+ /* -------------------Media queries---------------------- */
+
+
+
+
+
+
+
+
+
+ /* Base styles */
+
+  
+  /* Responsive for tablets (max-width: 768px) */
+  @media (max-width: 768px) {
+    .nav-item ul {
+      gap: 15px;
+    }
+  
+    .headline {
+      font-size: 2rem;
+    }
+  
+    .explore {
+      font-size: 0.9rem;
+      padding: 8px 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .ani{
+        margin-right: 10px;
+    }
+  }
+  
+  /* Responsive for mobile devices (max-width: 480px) */
+  @media (max-width: 480px) {
+    .navbar {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .nav-item ul {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .headline {
+      font-size: 1.8rem;
+    }
+  
+    .main-text p {
+      font-size: 0.9rem;
+    }
+  
+    .explore {
+      font-size: 0.8rem;
+      padding: 6px 12px;
+    }
+  }
+  .crousel-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cpk {
+    width: 100%;
+    max-width: 600px;
+}
+
+.caro-head {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Responsive Design */
+
+/* Small devices (phones) */
+@media (max-width: 576px) {
+    .caro-head {
+        font-size: 18px;
+    }
+
+    .cpk img {
+        height: 250px !important;
+    }
+
+    .carousel-caption {
+        font-size: 12px;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Medium devices (tablets) */
+@media (max-width: 768px) {
+    .caro-head {
+        font-size: 20px;
+    }
+
+    .cpk img {
+        height: 350px !important;
+    }
+
+    .carousel-caption {
+        font-size: 14px;
+    }
+}
+
+/* Large devices (desktops) */
+@media (min-width: 1024px) {
+    .crousel-wrap {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .cpk {
+        width: 32%;
+    }
+}
+  /* -------------------4th page media quiers------------------ */
+  /* Base styles */
+
+
+/* --- Responsive Styles --- */
+
+/* For tablets (max-width: 1024px) */
+@media (max-width: 724px) {
+    .disc{
+        height: 1000px;
+    }
+    .rare{
+        margin-top: 50px;
+        margin-right: 60px;
+    }
+    .wrap {
+        flex-direction: column;
+        text-align: center;
+    }
+    .rare-about {
+        text-align: center;
+    }
+    .exp{
+        width: 150px;
+        color: black;
+        background-color: rgb(206, 206, 49);
+        text-align: center;
+
+    }
+    .exp:hover{
+        width: 150px;
+        color: rgb(255, 255, 255);
+        background-color: rgb(57, 49, 206);
+    }
+}
+
+/* For mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+    
+    .disc{
+        height: 950px;
+    }
+    .rare{
+        margin-top: 50px;
+        margin-right: 60px;
+    }
+
+    .disc-head {
+        font-size: 22px;
+    }
+
+    .disc-header {
+        font-size: 20px;
+    }
+
+    .disc-abt {
+        font-size: 14px;
+    }
+
+    .exp {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+}

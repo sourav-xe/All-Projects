@@ -1,0 +1,174 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&display=swap');
+
+
+
+body {
+    background-color: black;
+    font-family: 'poppins',sans-serif;
+}
+
+.main {
+    background-image: url("nf-bg.jpg");
+    background-position: center center;
+    background-size: max(1200px, 100vw);
+    background-repeat: no-repeat;
+    
+    height: 714px;
+    position: relative;
+}
+
+.main .box {
+    height: 714px;
+    width: 100%;
+    opacity: 0.69;
+    position: absolute;
+    top: 0;
+    background-color: black;
+}
+
+nav {
+    max-width: 80vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    height: 100px;
+}
+
+nav img {
+    color: red;
+    width: 130px;
+    position: relative;
+    z-index: 10;
+}
+
+.nv-btn{
+    position: relative;
+    z-index: 10;
+    display: flex;
+}
+
+.signin{
+    width: 90px;
+    height: 35px;
+    border-radius: 8px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+    cursor: pointer;
+    outline: black 5px;
+    margin-left: 10px;
+    position: relative;
+    z-index: 1;
+}
+.langauge{
+    position: relative;
+    z-index: 1;  
+}
+.select{
+    height: 33px;
+    width: 100px;
+    text-align: center;
+    display: flex;
+    margin-left: 900px;
+    opacity: 0.9;
+    background-color: rgb(0, 0, 0);
+    filter: blur(90%);
+    color: white;
+    outline: rgb(231, 231, 231) 2px solid;   
+}
+
+.fa{
+    position: relative;
+    z-index: 1;
+    font-size: 24px;
+    color: white;
+    background-color: red;
+}
+.main-text{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 150px;
+}
+.bada1{
+    font-weight: bolder;
+    font-size: 4rem;
+    margin: 1px;
+    color: white;
+    font-family: "Martel Sans", serif;
+    font-weight: 900;
+    font-style: normal;
+    z-index: 1;
+    height: 70px;
+    
+}
+.bada2{
+    font-weight: bolder;
+    font-size: 4rem;
+    margin: 1px;
+    color: white;
+    font-family: "Martel Sans", serif;
+    font-weight: 900;
+    font-style: normal;
+    z-index: 1;
+   height: 100px; 
+      
+}
+      
+.chota{
+    font-weight: bolder;
+    font-size: large;
+    margin: 1px;
+    color: white;
+    font-family: "Martel Sans", serif;
+    font-weight: 900;
+    font-style: normal;
+    z-index: 1;
+    
+}
+.rd{
+    
+    font-size: large;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    font-style: normal;
+    position: relative;
+    z-index: 1;  
+}
+.new{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+.email{
+    /* opacity: 0.3;
+    background-color: rgb(0, 0, 0);
+    filter: blur(90%);
+    outline: rgb(231, 231, 231) 2px solid;    */
+    width: 400px;
+    height: 50px;
+    border-radius: 10px;
+    z-index: 1;
+}
+.get{
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+    font-family: "Martel Sans", serif;
+    font-weight: Bolder;
+    font-style: normal;
+    font-size: x-large;
+}
+*
