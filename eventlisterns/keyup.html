@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Test</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: #fff;
+    padding: 50px;
+}
+
+/* Container */
+.container {
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    margin: auto;
+    backdrop-filter: blur(10px);
+}
+
+/* Title */
+h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+/* Displayed Text */
+#text-display {
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+    min-height: 80px;
+}
+
+/* Input Field */
+textarea {
+    width: 100%;
+    height: 120px;
+    margin-top: 15px;
+    padding: 12px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    resize: none;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    outline: none;
+    transition: 0.3s;
+}
+
+textarea:focus {
+    background: #fff;
+    border: 2px solid #6a11cb;
+}
+
+/* Start Button */
+button {
+    margin-top: 15px;
+    padding: 12px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    background: #ff8c00;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #e67e22;
+}
+
+/* Results Section */
+.results {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.results span {
+    color: #ffd700;
+    font-size: 22px;
+}
+
+</style>
+<body>
+    <div class="container">
+        <h1>Typing Speed Test</h1>
+        <p id="text-display">
+            Click "Start" to begin the test.
+        </p>
+        <textarea id="text-input" placeholder="Start typing here..."></textarea>
+        <button id="start-button">Start</button>
+        <div class="results">
+            <p>Speed: <span id="speed">0</span> WPM</p>
+            <p>Accuracy: <span id="accuracy">0</span>%</p>
+        </div>
+    </div>
+
+</body>
+
+    <script>
+
+const textDisplay = document.getElementById("text-display");
+const textInput = document.getElementById("text-input");
+const startButton = document.getElementById("start-button");
+const speedDisplay = document.getElementById("speed");
+const accuracyDisplay = document.getElementById("accuracy");
+
+const sampleTexts = [
+    "The quick brown fox jumps over the lazy dog.",
+    "Typing speed is a skill that improves with practice.",
+    "JavaScript makes web pages interactive and fun!",
+];
+
+let startTime, interval;
+let selectedText = "";
+
+startButton.addEventListener("click", startTest);
+
+// Function to start the test
+function startTest() {
+    selectedText = sampleTexts[Math.floor(Math.random() * sampleTexts.length)];
+    textDisplay.textContent = selectedText;
+    textInput.value = "";
+    textInput.removeAttribute("disabled");
+    textInput.focus();
+    startTime = new Date().getTime();
+
+    // Start timer
+    interval = setInterval(updateStats, 100);
+}
+
+// Function to calculate speed and accuracy
+function updateStats() {
+    let elapsedTime = (new Date().getTime() - startTime) / 60000; // Convert to minutes
+    let typedText = textInput.value;
+    let wordsTyped = typedText.length / 5;
+    let speed = Math.round(wordsTyped / elapsedTime) || 0;
+
+    let correctChars = 0;
+    for (let i = 0; i < typedText.length; i++) {
+        if (typedText[i] === selectedText[i]) {
+            correctChars++;
+        }
+    }
+    let accuracy = Math.round((correctChars / selectedText.length) * 100) || 0;
+
+    speedDisplay.textContent = speed;
+    accuracyDisplay.textContent = accuracy;
+
+    // Stop test if text is fully typed
+    if (typedText === selectedText) {
+        clearInterval(interval);
+        textInput.setAttribute("disabled", true);
+    }
+}
+
+
+
+
+
+    </script>
+
+</html>

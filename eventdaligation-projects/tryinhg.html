@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        height: 500px;
+        width: 700px;
+        background-color: aqua;
+        border-radius: 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+    }
+    .ul li {
+        background: white;
+        padding: 10px;
+        margin: 5px;
+        display: flex;
+        justify-content: space-between;
+        width: 300px;
+        border-radius: 5px;
+    }
+    .ul button {
+        background: red;
+        color: white;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>Too-Do List</h1>
+        <form class="form" onsubmit="addTask(event)">
+            <input type="text" id="inputField" placeholder="Enter your task">
+            <button type="submit" class="addTask">Add Task</button>
+        </form>
+        <ul class="ul"></ul>
+
+    </div>
+</body>
+
+<script>
+
+
+            function addTask(event) {
+                event.preventDefault();
+                
+          let  input = document.getElementById("inputField");
+           let  addTask = document.getElementsByClassName("addTask");
+          let  TaskList = document.querySelector(".ul");
+
+
+                if(input.value === ""){
+                    alert("enter a task")
+                    return;
+                }
+                
+                let taskItem = document.createElement("li");
+                taskItem.textContent = input.value;
+
+                let deleteBtn = document.createElement("button");
+                deleteBtn.textContent = "delete";
+
+                deleteBtn.addEventListener("click", ()=>{
+                    taskItem.remove();
+                })
+
+                taskItem.appendChild(deleteBtn);
+                TaskList.appendChild(taskItem);
+                input.value = "";
+            }
+
+
+
+
+
+</script>
+</html>

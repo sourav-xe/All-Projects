@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark mode and Light mode Switcher</title>
+</head>
+<style>
+/* Default Light Mode */
+/* Default Light Mode */
+body {
+    background-color: white;
+    color: black;
+    font-family: "Arial", sans-serif;
+    text-align: center;
+    transition: background 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+/* Button Styling */
+button {
+    padding: 12px 24px;
+    margin: 10px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+#light-mode {
+    background: #f0f0f0;
+    color: black;
+}
+
+#dark-mode {
+    background: black;
+    color: white;
+}
+
+/* Button Hover Effects */
+#light-mode:hover {
+    background: #e0e0e0;
+    transform: scale(1.05);
+}
+
+#dark-mode:hover {
+    background: #333;
+    transform: scale(1.05);
+}
+
+/* Dark Mode */
+.dark {
+    background-color: black;
+    color: white;
+}
+
+/* Box Styling */
+.changer {
+    height: 300px;
+    width: 500px;
+    border: 5px solid black;
+    margin: 50px auto;
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+    transition: background 0.4s ease-in-out, border 0.4s ease-in-out;
+}
+
+/* Dark Mode Box Styling */
+.dark .changer {
+    border: 5px solid white;
+    box-shadow: 5px 5px 20px rgba(255, 255, 255, 0.2);
+}
+
+
+</style>
+<body>
+    
+    <div class="container">
+        <h1>Dark/Light Mode Switcher</h1>
+        <p>Click a button to change the theme.</p>
+        <button id="light-mode">Light Mode</button>
+        <button id="dark-mode">Dark Mode</button>    
+    </div>
+
+    <div class="changer"></div>
+
+    <script>
+
+        const light = document.getElementById("light-mode")
+        const dark = document.getElementById("dark-mode")
+        const changer = document.querySelector(".changer")
+
+        function applytheme(theme){
+            if(theme === "dark"){
+                changer.style.backgroundColor = "black";
+                changer.style.border = "5px solid black";
+            }
+            else{
+                changer.style.backgroundColor = "white";
+                changer.style.border = "5px solid  black";
+            }
+        }
+        
+        const savetheme = localStorage.getItem("theme");
+        if(savetheme){
+            applytheme(savetheme);
+        }
+
+        light.addEventListener("click",()=>{
+            applytheme("light");
+            localStorage.setItem("theme","light")
+        })
+
+        dark.addEventListener("click",()=>{
+            applytheme("dark");
+            localStorage.setItem("theme","dark")
+        })
+
+    </script>
+   
+</body>
+</html>

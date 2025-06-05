@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO LIST with Local Storage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, black, red);
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            text-align: center;
+            color: white;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            width: 100%;
+            outline: none;
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            transition: 0.3s;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        input:focus {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        button {
+            padding: 12px;
+            background: #ff4c4c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #d63d3d;
+        }
+
+        .ul {
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        .task {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 5px solid #ff4c4c;
+            transition: 0.3s;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .task span {
+            flex-grow: 1;
+            cursor: pointer;
+        }
+
+        .delete-btn {
+            background: #ff4c4c;
+            padding: 6px 10px;
+            font-size: 14px;
+            border: none;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .delete-btn:hover {
+            background: #d63d3d;
+        }
+
+        .completed {
+            background: rgba(255, 0, 0, 0.6);
+            text-decoration: line-through;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do List with Local Storage ✅</h1>
+        <form class="form">
+            <input type="text" id="inputField" placeholder="Enter a task...">
+            <button id="addTask">Add Task</button>
+        </form>
+        <div class="ul"></div>
+    </div>
+
+    <script>
+        const userInput = document.querySelector("#inputField");
+        const addTask = document.querySelector("#addTask");
+        const ul = document.querySelector(".ul");
+
+        // Load tasks from local storage
+        function loadTasks() {
+            const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+            tasks.forEach(task => addTaskToUI(task.text, task.completed));
+        }
+
+        // Save tasks to local storage
+        function saveTasks() {
+            const tasks = [];
+            document.querySelectorAll(".task").forEach(taskDiv => {
+                tasks.push({
+                    text: taskDiv.querySelector("span").textContent,
+                    completed: taskDiv.classList.contains("completed")
+                });
+            });
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+        }
+
+        document.querySelector(".form").addEventListener("submit", (event) => {
+            event.preventDefault();
+            const taskText = userInput.value.trim();
+            if (taskText === "") {
+                alert("Enter a task");
+                return;
+            }
+            addTaskToUI(taskText, false);
+            saveTasks();
+            userInput.value = "";
+        });
+
+        function addTaskToUI(taskText, isCompleted) {
+            const taskDiv = document.createElement("div");
+            taskDiv.classList.add("task");
+            if (isCompleted) taskDiv.classList.add("completed");
+
+            const taskSpan = document.createElement("span");
+            taskSpan.textContent = taskText;
+
+            const delButton = document.createElement("button");
+            delButton.textContent = "Delete";
+            delButton.classList.add("delete-btn");
+
+            delButton.addEventListener("click", () => {
+                taskDiv.remove();
+                saveTasks();
+            });
+
+            taskDiv.appendChild(taskSpan);
+            taskDiv.appendChild(delButton);
+            ul.appendChild(taskDiv);
+        }
+
+        ul.addEventListener("click", (event) => {
+            if (event.target.tagName === "SPAN") {
+                event.target.parentElement.classList.toggle("completed");
+                saveTasks();
+            }
+        });
+
+        loadTasks(); // Load tasks when the page loads
+    </script>
+</body>
+</html>

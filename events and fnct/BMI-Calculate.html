@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+</head>
+<style>
+    /* 🔹 General Styles */
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(to right, #000000, #00f2fe);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        background: #fff;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        max-width: 400px;
+        width: 100%;
+        transition: transform 0.3s;
+    }
+
+    .container:hover {
+        transform: translateY(-5px);
+    }
+
+    h1 {
+        color: #333;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    label {
+        font-weight: bold;
+        color: #555;
+        display: block;
+        margin-top: 10px;
+    }
+
+    input {
+        width: 80%;
+        padding: 12px;
+        margin: 8px 0;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+        outline: none;
+        transition: 0.3s;
+    }
+
+    input:focus {
+        border-color: #4facfe;
+        box-shadow: 0 0 8px rgba(79, 172, 254, 0.6);
+    }
+
+    button {
+        background: linear-gradient(to right, #ff416c, #ff4b2b);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        font-size: 18px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+        width: 90%;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background: linear-gradient(to right, #ff4b2b, #ff416c);
+        transform: scale(1.05);
+    }
+
+    #result {
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+        transition: 0.3s;
+    }
+
+    #done {
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.3s;
+    }
+
+    #weight-guide {
+        margin-top: 20px;
+        padding: 15px;
+        background: #f7f7f7;
+        border-radius: 8px;
+    }
+
+    #weight-guide h3 {
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    #weight-guide p {
+        margin: 5px 0;
+        font-size: 14px;
+        color: #555;
+    }
+</style>
+<body>
+    <div class="container">
+    <h1>BMI Calculator</h1>
+    <form>
+        <p><label>Height in CM:</label><input type="text" id="height"></p>
+        <p><label>Weight in KG:</label><input type="text" id="weight"></p>
+        <button>Calculate</button>
+        <div id="result"></div>
+        <div id="done"></div>
+        <div id="weight-guide">
+            <h3>BMI Weight Guide</h3>
+            <p>Under Weight = Less than 18.6</p>
+            <p>Normal Weight = 18.6 to 24.9</p>
+            <p>Overweight = Greater than 24.9</p>
+        </div>
+    </form>
+    </div>
+</body>
+<script>
+    const form = document.querySelector("form");
+    form.addEventListener("submit", function(event){
+        event.preventDefault();
+        const height = parseInt(document.querySelector("#height").value)
+        const weight = parseInt(document.querySelector("#weight").value)
+        const result = document.querySelector("#result")
+        const done =  document.querySelector("#done")
+
+        if(height < 0 || isNaN(height)){           
+         result.innerHTML = `Please enter a valid height: ${height}`;
+         done.innerHTML = ""; // Clear previous messages
+         return;
+        }
+        else if( weight < 0 || isNaN(weight)){           
+         result.innerHTML = `Please enter a valid weight: ${weight}`;
+         done.innerHTML = ""; // Clear previous messages
+         return;
+        }
+      
+            const bmi = (weight / ((height*height)/10000)).toFixed(2);
+            result.innerHTML=` Your BMI IS ${bmi}`;
+    
+       
+        if(bmi<= 18.6 ){
+            done.innerHTML = ` <span style="color:orange;">⚠️ You are Underweight</span>`;
+        }
+         else if(bmi>= 18.6 && bmi<=24.9 ){
+            done.innerHTML = ` <span style="color:green;"> ✅ You areFit</span>`;
+        }
+        else{
+            done.innerHTML = ` <span style="color:red;">⚠️ You are Overweight</span>`;
+        }
+ 
+    })
+
+
+
+</script>
+</html>

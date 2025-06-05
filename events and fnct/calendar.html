@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Date Widget</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .wrapper {
+            display: flex;
+            height: 320px;
+            width: 320px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        .left {
+            flex: 2;
+            background: white;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+        .right {
+            flex: 1;
+            background: crimson;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        #date {
+            font-size: 4em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        #day {
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+        #month {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+           
+        }
+        #year {
+            font-size: 2em;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="left">
+            <p id="date"></p>
+            <p id="day"></p>
+        </div>
+        <div class="right"> 
+            <p id="month"></p>
+            <p id="year"></p>
+        </div>
+    </div>
+</body>
+<script>
+    const date = document.getElementById("date");
+    const day = document.getElementById("day");
+    const month = document.getElementById("month");
+    const year = document.getElementById("year");
+
+    const today = new Date();
+    const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const allMonths = [
+        "January", "February", "March", "April", "May", "June", 
+        "July", "August", "September", "October", "November", "December"
+    ];
+
+    date.innerHTML = (today.getDate() < 10 ? "0" : "") + today.getDate();
+    day.innerHTML = weekDays[today.getDay()];
+    month.innerHTML = allMonths[today.getMonth()];
+    year.innerHTML = today.getFullYear();
+</script>
+</html>
